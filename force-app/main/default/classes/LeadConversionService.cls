@@ -21,7 +21,7 @@ public without sharing class LeadConversionService {
                     LeadStatus convertStatus = [SELECT Id, MasterLabel FROM LeadStatus WHERE IsConverted=true LIMIT 1];              //find the a converted LeadStatus
                     lc.setConvertedStatus(convertStatus.MasterLabel);                                                                //pass the MasterLabel into the setConvertedStatus method
 
-                    massLeadConvert.add(lc);
+                    massLeadConvert.add(lc); 
 
                 }
 
