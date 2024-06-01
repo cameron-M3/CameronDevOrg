@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="List of Accounts">
+        <template lwc:if={accounts}>
+            <ul>
+                <template for:each={accounts} for:item="account">
+                    <li key={account.Id}>
+                        <p>{account.Name}</p>
+                        <!-- Add other fields you want to display -->
+                    </li>
+                </template>
+            </ul>
+        </template>
+        <template lwc:else>
+            <div class="slds-text-color_error">{error}</div>
+        </template>
+    </lightning-card>
+</template>

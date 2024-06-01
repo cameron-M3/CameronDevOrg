@@ -1,0 +1,46 @@
+<template>
+    <div class="slds-grid">
+        <div class="slds-col">
+            <lightning-combobox label="Stage Filter" value={status} options={comboOptions} onchange={handleChange}></lightning-combobox>
+        </div>
+        <div class="slds-col">
+            <lightning-radio-group name="modeSwitch"
+                          label="Display Mode"
+                          options={displayOptions}
+                          value={displayMode}
+                          type="button"
+                          onchange={modeChange}></lightning-radio-group>
+        </div>
+    </div>
+    <lightning-card>
+        <div class="slds-tile slds-m-top_small slds-m-bottom_small">
+            <div class="slds-tile_detail">
+                <dl class="slds-list_horizontal slds-wrap">
+                    <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Total Records">Total Records :</dt>
+                    <dd class="slds-item_detail slds-truncate" title={totalRecords}>{totalRecords}</dd>
+                    <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Total Amount">Total Amount :</dt>
+                    <dd class="slds-item_detail slds-truncate" title={totalAmount}>
+                        <lightning-formatted-number value={totalAmount} format-style="currency"></lightning-formatted-number>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </lightning-card>
+    <template lwc:if={recordsToDisplay}>
+        <template lwc:if={tableMode}>
+            <lightning-datatable data={displayOpps} key-field="Id" columns={columns} hide-checkbox-column
+                                    draft-values={tableDraftValues} onsave={handleTableSave}></lightning-datatable>
+        </template>
+        <template lwc:else>
+            <template for:each={displayOpps} for:item="opp">
+                <div key={opp.Id}>
+                    <c-opp-card name={opp.Name} amount={opp.Amount} stage={opp.StageName} close-date={opp.CloseDate} opp-id={opp.Id} onmodsaved={refreshWire}></c-opp-card>
+                </div>
+            </template>
+        </template>
+    </template>
+    <template lwc:else>
+        <p> No Records to Display....</p>
+    </template>
+
+</template>

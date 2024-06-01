@@ -1,0 +1,7 @@
+<template>
+    <lightning-card title="parent component">
+         {childName} said {childSaid}
+        <c-child-component child-name="Huey" age=10 ontalk={handleTalk}></c-child-component>
+        <c-child-component child-name="Duey" age=12 ontalk={handleTalk}></c-child-component>
+    </lightning-card>
+</template>

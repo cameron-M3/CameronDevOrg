@@ -1,0 +1,9 @@
+<template>
+    <lightning-card title="Child Component">
+        <p> My name is {childName}</p>
+        <p> I am {age} years old</p>
+        <lightning-input type="text" label="send message to parent"
+                        value={childSpeak} onchange={respondToParent}>
+        </lightning-input>
+    </lightning-card>
+</template>
