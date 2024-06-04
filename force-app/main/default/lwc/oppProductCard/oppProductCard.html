@@ -1,0 +1,29 @@
+<template>
+    <lightning-card>
+        <h3 slot="title" class="slds-tile__title slds-truncate" title={name}>
+            <a onclick={viewOppProduct}>{name}</a>
+        </h3>
+        <div class="slds-tile">
+            <div class="slds-tile__detail">
+                <dl class="slds-list_horizontal slds-wrap">
+                    <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                            title="Quantity">Quantity:</dt>
+                    <dd class="slds-item_detail slds-truncate" title={quantity}>{quantity}</dd>
+                    <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                        title="Sales Price">Sales Price:</dt>
+                    <dd class="slds-item_detail slds-truncate" title={salesPrice}>
+                        <lightning-formatted-number value={salesPrice} format-style="currency"></lightning-formatted-number>
+                    </dd>
+                    <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                        title="Date">Date:</dt>
+                    <dd class="slds-item_detail slds-truncate" title={date}>
+                        <lightning-formatted-date-time value={date}></lightning-formatted-date-time>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        <div slot="actions">
+            <lightning-icon title="Edit" icon-name="utility:edit" size="x-small" onclick={editOppProduct}></lightning-icon>
+        </div>
+    </lightning-card>
+</template>
