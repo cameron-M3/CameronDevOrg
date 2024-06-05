@@ -1,8 +1,8 @@
 <template>
     <template lwc:if={recordsToDisplay}>
-            <template for:each={oppProducts} for:item="oppProduct">
-                <div key={oppProduct.Id}>
-                    <c-opp-product-card opp-product-id={oppProduct.Id} name={oppProduct.Name} quantity={oppProduct.Quantity} sales-price={oppProduct.UnitPrice} service-date={oppProduct.ServiceDate} onmodsaved={refreshWire}></c-opp-product-card>
+            <template for:each={oppProducts} for:item="oppP">
+                <div key={oppP.Id}>
+                    <c-opp-product-card opp-product-id={oppP.Id} name={oppP.Name} quantity={oppP.Quantity} sales-price={oppP.UnitPrice} service-date={oppP.ServiceDate} onmodsaved={refreshWire}></c-opp-product-card>
                 </div>
             </template>
         </template>

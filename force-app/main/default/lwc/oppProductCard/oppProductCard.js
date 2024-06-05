@@ -1,11 +1,11 @@
 import { LightningElement, api } from 'lwc';
-import { NavigationMixin} from 'lightning/navigation';
+import { NavigationMixin } from 'lightning/navigation';
 import RecordModal from 'c/recordModal';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
 
 
-export default class ProductCard extends LightningElement {
+export default class oppProductCard extends NavigationMixin(LightningElement) {
 
     @api oppProductId;
     @api name;
@@ -15,7 +15,7 @@ export default class ProductCard extends LightningElement {
 
 
     //method to open the RecordModal LWC and dispatch Toast
-    editProduct(){
+    editOppProduct(){
         RecordModal.open({                              //open the component and set attributes
             size: 'small',
             recordId: this.oppProductId,
@@ -57,18 +57,18 @@ export default class ProductCard extends LightningElement {
 
     }
 
-    //method to handle click on Product Name
-    viewProduct(){
-        
-        this[NavigationMixin]({
+    //method to handle click on name
+    viewRecord() {
+
+        console.log('debug....')
+        // call the Navigate method of the NavigationMixin class and pass in some parameters
+        this[NavigationMixin.Navigate]({
             type: 'standard__recordPage',
-            attributes:{
+            attributes: {
                 recordId: this.oppProductId,
                 actionName: 'view'
             }
-
         });
-
     }
 
 }

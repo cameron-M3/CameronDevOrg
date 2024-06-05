@@ -1,5 +1,5 @@
 import { LightningElement,api } from 'lwc';
-import { NavigationMixin} from 'lightning/navigation';
+import { NavigationMixin } from 'lightning/navigation';
 import RecordModal from 'c/recordModal';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
