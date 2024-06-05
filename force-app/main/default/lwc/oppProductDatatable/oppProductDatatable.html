@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Opportuity Products" icon-name="standard:product">
+        <lightning-datatable 
+            data={records} 
+            key-field="Id" 
+            columns={columns} 
+            hide-checkbox-column
+            draft-values={tableDraftValues} 
+            onsave={tableSave}>
+        </lightning-datatable>
+    </lightning-card>
+</template>
