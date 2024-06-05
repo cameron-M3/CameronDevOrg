@@ -11,6 +11,7 @@ export default class ProductCard extends LightningElement {
     @api name;
     @api quantity;
     @api salesPrice;
+    @api serviceDate;
 
 
     //method to open the RecordModal LWC and dispatch Toast

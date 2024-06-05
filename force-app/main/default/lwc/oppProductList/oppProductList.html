@@ -2,7 +2,7 @@
     <template lwc:if={recordsToDisplay}>
             <template for:each={oppProducts} for:item="oppProduct">
                 <div key={oppProduct.Id}>
-                    <c-opp-product-card opp-product-id={oppProduct.Id} name={oppProduct.Name} quantity={oppProduct.Quantity} sales-price={oppProduct.UnitPrice} onmodsaved={refreshWire}></c-opp-product-card>
+                    <c-opp-product-card opp-product-id={oppProduct.Id} name={oppProduct.Name} quantity={oppProduct.Quantity} sales-price={oppProduct.UnitPrice} serivice-date={oppProduct.ServiceDate} onmodsaved={refreshWire}></c-opp-product-card>
                 </div>
             </template>
         </template>
