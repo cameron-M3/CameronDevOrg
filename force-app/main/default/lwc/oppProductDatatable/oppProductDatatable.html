@@ -1,5 +1,9 @@
 <template>
-    <div class="slds-m-bottom_large, slds-m-left_large">Total Amount : {totalAmount}</div>
+    <div class="slds-m-bottom_small slds-align_absolute-center slds-text-heading_bold">
+        <lightning-helptext content="Total amount of all opportunity products" class="slds-m-right_small"></lightning-helptext>
+        <div >Total Amount -</div> 
+        <lightning-formatted-number value={totalAmount} format-style="currency" class="slds-m-left_small"></lightning-formatted-number>
+    </div>
     <lightning-card title="Opportuity Products" icon-name="standard:product">
         <lightning-datatable 
             data={oppProducts.data} 
@@ -11,3 +15,5 @@
         </lightning-datatable>
     </lightning-card>
 </template>
+
+

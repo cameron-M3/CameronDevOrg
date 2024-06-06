@@ -62,7 +62,7 @@ export default class OppProductDatatable extends LightningElement {
 
             //Display fresh data in datatable
             await refreshApex(this.oppProducts);
-            this.totalAmount = await getTotalAmount({oppId: this.recordId});
+            await refreshApex(this.totalAmount);
 
         } catch (error){
             this.dispatchEvent(

@@ -11,7 +11,7 @@ public with sharing class OpportunityProductController {
 
     }
 
-    @AuraEnabled(cacheable = true)
+    @AuraEnabled
     public static void updateOpportunityProducts(List<OpportunityLineItem> oppProductsForUpdate) {
 
         update oppProductsForUpdate;
