@@ -10,4 +10,20 @@ public with sharing class OpportunityProductController {
 
 
     }
+
+    @AuraEnabled
+    public static void updateOpportunityProducts(List<OpportunityLineItem> oppProductsForUpdate) {
+
+        update oppProductsForUpdate;
+    }
+
+    @AuraEnabled
+    public static Double getTotalAmount(String oppId){
+
+        Opportunity opp = [SELECT Id, Amount FROM Opportunity WHERE Id = : oppId];
+        Double Amount = opp.Amount;
+
+        return Amount;
+    }
+        
 }
