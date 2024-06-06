@@ -29,16 +29,22 @@ export default class OppProductDatatable extends LightningElement {
 
     @wire(getOpportunityProducts, {oppId: '$recordId'})
     oppProducts;
-
+    
+    //get total amount of all opportunity products
     @wire(getTotalAmount, {oppId: '$recordId'})
-    
-
-    
+    wiredTotalAmount({error, data}) {
+        if (data) {
+            this.totalAmount = data;
+        } else if (error) {
+            console.log('Error getting total amount' + error);
+        }
+    }
 
     async handleSave(event){
         const updatedFields = event.detail.draftValues;
 
         this.draftValues = [];
+
 
         try {
             //pass edited fields to the updateOpportunity Apex Controller
@@ -56,6 +62,7 @@ export default class OppProductDatatable extends LightningElement {
 
             //Display fresh data in datatable
             await refreshApex(this.oppProducts);
+            this.totalAmount = await getTotalAmount({oppId: this.recordId});
 
         } catch (error){
             this.dispatchEvent(

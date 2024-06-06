@@ -1,6 +1,6 @@
 public with sharing class OpportunityProductController {
    
-    @AuraEnabled (cacheable = true)
+    @AuraEnabled(cacheable = true)
     public static List<OpportunityLineItem> getOpportunityProducts(String oppId){
 
         List<OpportunityLineItem> oppProductsRecords = [SELECT Id, Name, Quantity, UnitPrice, ServiceDate, OpportunityId 
@@ -11,13 +11,13 @@ public with sharing class OpportunityProductController {
 
     }
 
-    @AuraEnabled
+    @AuraEnabled(cacheable = true)
     public static void updateOpportunityProducts(List<OpportunityLineItem> oppProductsForUpdate) {
 
         update oppProductsForUpdate;
     }
 
-    @AuraEnabled
+    @AuraEnabled(cacheable = true)
     public static Double getTotalAmount(String oppId){
 
         Opportunity opp = [SELECT Id, Amount FROM Opportunity WHERE Id = : oppId];
